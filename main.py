@@ -9,10 +9,12 @@ def get_book_text(input):
 
 
 def main():
-    print(sys.argv)
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
     book = get_book_text(sys.argv[1])
     # print(book)
-    print("============ BOOKBOT ============\nAnalyzing book found at books/frankenstein.txt...\n----------- Word Count ----------")
+    print(f"============ BOOKBOT ============\nAnalyzing book found at {sys.argv[1]}...\n----------- Word Count ----------")
     print(f"Found {num_of_words(book)} total words")
     print("--------- Character Count -------")
     characters = characterCount(book)
